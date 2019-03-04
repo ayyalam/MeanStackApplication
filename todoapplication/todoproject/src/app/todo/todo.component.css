@@ -1,0 +1,11 @@
+.wrapper{
+  display: inline-block;
+}
+
+.btn-right{
+  margin-right: 20px ;
+}
+
+.todo-wrapper{
+  margin: 10px;
+}

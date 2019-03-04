@@ -1,0 +1,26 @@
+<section class="text-center">
+  <h1>
+    Add Item
+  </h1>
+  <div class="form-group">
+    <input type="text" class="form-control input-lg" placeholder="Add Item" #addItem>
+    <br>
+    <button (click)="addTodo(addItem)" class="btn btn-primary btn-block"> Add </button>
+  </div>
+</section>
+
+<div class="todo-list">
+  <div class="todo-wrapper" *ngFor="let todo of todos">
+    <div class="wrapper col-md-8">
+      <span *ngIf="!todo.isEditable">{{ todo.item }}</span>
+      <input *ngIf="todo.isEditable" #currentItem type="text" value="{{todo.item}}"
+             (keypress)="saveUpdatedTodo($event, todo, currentItem)">
+      <span *ngIf="todo.isEditable" style="color: red"> press enter after updating</span>
+    </div>
+    <div class="wrapper col-md-4">
+      <input type="button" class="btn-right btn btn-info pull-right" (click)="editTodo(todo)" value="Edit">
+      <input type="button" class="btn-right btn btn-danger pull-right" (click)="deleteTodo(todo)" value="Delete">
+    </div>
+
+  </div>
+</div>
